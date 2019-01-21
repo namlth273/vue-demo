@@ -59,9 +59,9 @@ export default class Login extends Vue {
         email: this.email,
         password: this.password,
       })
-      .then(() => {
-        console.log('login ok');
-        //this.$router.push('/');
+      .then((res) => {
+        //console.log(res.user);
+        this.$router.push('/');
       })
       .catch((err) => {
         console.error(err);

@@ -3,6 +3,8 @@ import {
   Module,
   getModule,
   MutationAction,
+  Mutation,
+  Action,
 } from 'vuex-module-decorators';
 import store from '..';
 import { Profile, User, UserSubmit } from '../models';
@@ -22,11 +24,16 @@ class UsersModule extends VuexModule {
     return this.user && this.user.username;
   }
 
-  @MutationAction
+  @Mutation
+  setUser(user: User) {
+    this.user = user;
+  }
+
+  @Action({ commit: 'setUser' })
   async login(userSubmit: UserSubmit) {
     const user = await loginUser(userSubmit);
-    //setJWT(user.token);
-    return { user };
+    setJWT(user.token);
+    return user;
   }
 }
 
