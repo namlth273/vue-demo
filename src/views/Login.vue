@@ -32,6 +32,7 @@
             <button
               @click="login()"
               class="btn btn-lg btn-primary pull-xs-right"
+              type="button"
             >
               Sign in
             </button>
@@ -58,7 +59,10 @@ export default class Login extends Vue {
         email: this.email,
         password: this.password,
       })
-      .then(() => this.$router.push('/'))
+      .then(() => {
+        console.log("login ok");
+        //this.$router.push('/');
+      })
       .catch((err) => {
         console.error(err);
         this.loginError = 'Invalid username or password';

@@ -13,10 +13,14 @@ class UsersModule extends VuexModule {
     user: User | null = null;
     profile: Profile | null = null;
 
+    get username() {
+        return this.user && this.user.username;
+    }
+
     @MutationAction
     async login(userSubmit: UserSubmit) {
         const user = await loginUser(userSubmit);
-        setJWT(user.token);
+        //setJWT(user.token);
         return { user };
     }
 }
