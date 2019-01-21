@@ -34,8 +34,8 @@
 </template>
 
 <script lang="ts">
-import users from '@/store/modules/users';
-import { Vue, Component } from 'vue-property-decorator';
+import users from "@/store/modules/users";
+import { Vue, Component } from "vue-property-decorator";
 
 @Component
 export default class AppNavBar extends Vue {

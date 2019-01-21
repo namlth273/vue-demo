@@ -44,14 +44,14 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
-import users from '@/store/modules/users';
+import { Vue, Component } from "vue-property-decorator";
+import users from "@/store/modules/users";
 
 @Component
 export default class Login extends Vue {
-  email = '';
-  password = '';
-  loginError = '';
+  email = "";
+  password = "";
+  loginError = "";
 
   login() {
     users
@@ -61,11 +61,11 @@ export default class Login extends Vue {
       })
       .then((res) => {
         //console.log(res.user);
-        this.$router.push('/');
+        this.$router.push("/");
       })
       .catch((err) => {
         console.error(err);
-        this.loginError = 'Invalid username or password';
+        this.loginError = "Invalid username or password";
       });
   }
 }

@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "eslint --fix --ext .ts,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
     "vue": "^2.5.21",

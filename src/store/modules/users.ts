@@ -5,14 +5,14 @@ import {
   MutationAction,
   Mutation,
   Action,
-} from 'vuex-module-decorators';
-import store from '..';
-import { Profile, User, UserSubmit } from '../models';
-import { loginUser, setJWT } from '../api';
+} from "vuex-module-decorators";
+import store from "..";
+import { Profile, User, UserSubmit } from "../models";
+import { loginUser, setJWT } from "../api";
 
 @Module({
   namespaced: true,
-  name: 'users',
+  name: "users",
   store,
   dynamic: true,
 })
@@ -29,7 +29,7 @@ class UsersModule extends VuexModule {
     this.user = user;
   }
 
-  @Action({ commit: 'setUser' })
+  @Action({ commit: "setUser" })
   async login(userSubmit: UserSubmit) {
     const user = await loginUser(userSubmit);
     setJWT(user.token);
