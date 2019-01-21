@@ -8,31 +8,31 @@
             <router-link to="/register"> Need an account? </router-link>
           </p>
 
-          <ul class="error-messages" v-if="loginError">
+          <ul v-if="loginError" class="error-messages">
             <li>{{ loginError }}</li>
           </ul>
 
           <form>
             <fieldset class="form-group">
               <input
+                v-model="email"
                 class="form-control form-control-lg"
                 type="text"
-                v-model="email"
                 placeholder="Email"
               />
             </fieldset>
             <fieldset class="form-group">
               <input
+                v-model="password"
                 class="form-control form-control-lg"
                 type="password"
-                v-model="password"
                 placeholder="Password"
               />
             </fieldset>
             <button
-              @click="login()"
               class="btn btn-lg btn-primary pull-xs-right"
               type="button"
+              @click="login()"
             >
               Sign in
             </button>
@@ -60,7 +60,7 @@ export default class Login extends Vue {
         password: this.password,
       })
       .then(() => {
-        console.log("login ok");
+        console.log('login ok');
         //this.$router.push('/');
       })
       .catch((err) => {
